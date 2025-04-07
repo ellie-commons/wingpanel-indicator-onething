@@ -1,0 +1,23 @@
+com.github.lenemter.wingpanel-indicator-namarupa (1.0.4) jammy; urgency=medium
+
+  * Fixed build for OS 8
+
+ -- lenemter <lenemter@gmail.com>  Tue, 17 Dec 2024 19:16:00 +0300
+
+com.github.lenemter.wingpanel-indicator-namarupa (1.0.3) jammy; urgency=medium
+
+  * Various bug fixes
+
+ -- lenemter <lenemter@gmail.com>  Sat, 28 Jan 2023 22:50:00 +0900
+
+com.github.donadigo.wingpanel-indicator-namarupa (1.0.2) focal; urgency=medium
+
+  * New release : fix image missing 
+
+ -- lafy <lafy@mailo.com>  Tue, 24 Aug 2021 11:05:59 +0200
+
+com.github.donadigo.wingpanel-indicator-namarupa (1.0.0) bionic; urgency=medium
+
+  * Initial release.
+
+ -- lafydev <lafy@mailo.com>  Fri, 13 Nov 2020 16:19:19 +0100

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/io/github/ellie_commons/indicator-simplethings/" id="io.github.ellie_commons.indicator-simplethings">
+		<key name="text" type="s">
+			<default>"UwU"</default>
+			<summary>Text to display</summary>
+			<description>Text to display in wingpanel</description>
+		</key>
+	</schema>
+</schemalist>
