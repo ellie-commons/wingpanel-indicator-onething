@@ -3,6 +3,8 @@ debian/.debhelper/
 debian/debhelper-build-stamp
 debian/files
 obj-*/
+.potrans/
+builddir/
 
 #IDE
 *~

@@ -1,6 +1,13 @@
-# ![icon](data/icon.png) Wingpanel Namarupa Indicator
+# ![icon](data/icon.png) Wingpanel Simple Things Indicator
 
 ![Screenshot](data/screenshot.png)
+
+
+
+## Hey
+
+Still working on this!
+
 
 
   

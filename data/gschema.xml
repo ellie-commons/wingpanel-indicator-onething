@@ -2,9 +2,9 @@
 <schemalist>
   <schema path="/io/github/ellie_commons/indicator-simplethings/" id="io.github.ellie_commons.indicator-simplethings">
 		<key name="text" type="s">
-			<default>"UwU"</default>
+			<default>""</default>
 			<summary>Text to display</summary>
-			<description>Text to display in wingpanel</description>
+			<description>Text to display in wingpanel. Empty string is replaced by a localized default</description>
 		</key>
 	</schema>
 </schemalist>

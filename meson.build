@@ -12,7 +12,9 @@ prefix = get_option('prefix')
 libdir = prefix / get_option('libdir')
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(gettext_name), language:'c')
-add_project_arguments('-DG_LOG_DOMAIN="io.github.ellie_commons.indicator-simplethings"', language:'c')
+add_project_arguments('-DG_LOG_DOMAIN="io.github.ellie_commons.wingpanel-indicator-simplethings"', language:'c')
+
+
 
 wingpanel_dep = dependency('wingpanel')
 wingpanel_indicatorsdir = wingpanel_dep.get_variable('indicatorsdir', pkgconfig_define: ['libdir', libdir])
@@ -27,9 +29,9 @@ config_file = configure_file(
     configuration: config_data
 )
 
-
 shared_module(
     meson.project_name(),
+    configure_file(input: 'src/Config.vala.in', output: '@BASENAME@', configuration: config_data),
     'src/Indicator.vala',
     dependencies: [
         dependency('glib-2.0'),
@@ -43,4 +45,6 @@ shared_module(
 )
 
 subdir('data')
+subdir('po')
+
 gnome.post_install(glib_compile_schemas: true)

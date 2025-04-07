@@ -1,6 +1,6 @@
 /*-
  * Copyright 2015 Wingpanel Developers (http://launchpad.net/wingpanel)
- *           2022 lenemter <lenemter@gmail.com>
+ *           2025 teamcons -- teamcons.github.com
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Library General Public License as published by
@@ -19,45 +19,73 @@
  
 public class SimpleThings.Indicator : Wingpanel.Indicator {
     private static GLib.Settings settings;
-    private Gtk.Entry entry;
-    private Gtk.Label label;
-    private Gtk.Box popover;
+    private Gtk.Entry? entry;
+    private Gtk.Label? label;
+    private Gtk.Box? box;
 
     public Indicator () {
         Object (code_name: "simplethings");
+    }
+
+    construct {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
 
         settings = new GLib.Settings ("io.github.ellie_commons.indicator-simplethings");
         visible = true;
-
-
     }
 
     public override Gtk.Widget get_display_widget () {
         if (label == null) {
-            label = new Gtk.Label(settings.get_string ("text"));
+            string text = settings.get_string ("text");
+
+            // Avoid having nothing to display
+            // And allow translating the default
+            if (text == "") {
+                text = _("Simple Things!");
+            }
+            label = new Gtk.Label(text);
         }
         return label;
     }
 
     public override Gtk.Widget? get_widget () {
-        if (popover == null) {
-            entry.set_text ("likuhdv") ; //settings.get_string ("text");
-            entry.show();
+        if (box == null) {
+            entry = new Gtk.Entry();
+            entry.set_text (settings.get_string ("text"));
+            entry.vexpand = true;
+            entry.hexpand = true;
+            entry.height_request = 24;
+            entry.placeholder_text = _("Add simple things here :)");
 
-            popover = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
-            popover.add (entry);
+            // Nice clean box to pad it.
+            box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
+            box.add (entry);
+            box.margin = 6;
+
         }
-        return popover;
+        return box;
     }
 
     public override void opened () {
-        entry.text = settings.get_string ("text");
+        entry.grab_focus ();
     }
 
     public override void closed () {
+
+        // Avoid having nothing to display
+        // And allow translating the default
+        if (   entry.text == "") {
+                entry.text = _("Simple Things!");
+        }
+
         settings.set_string ("text", entry.text);
         label.set_label (settings.get_string ("text"));
     }
+
+
 }
 
 
