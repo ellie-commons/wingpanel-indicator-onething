@@ -1,4 +1,4 @@
-# ![icon](data/icon.png) Wingpanel Simple Things Indicator
+# Wingpanel Simple Things Indicator
 
 ![Screenshot](data/screenshot.png)
 
@@ -8,7 +8,8 @@
 
 Still working on this!
 
-
+.Repair translations
+.do a deb file
 
   
 ## For developers
