@@ -16,9 +16,8 @@ Pretty much the elementary OS pendant of https://github.com/one-thing-gnome/one-
 ## 🛣️ Roadmap
 
 Still working on this!
- - Repair translations
- - Im not sure it follows dark-light theme ?
- - Maybe center it or some shit or hide that in a dconf
+ - Repair translations (needed? idk.)
+ - Change alignment setting (hidden in dconf atm)
  - Figure out how to do a deb file
 
   
