@@ -35,6 +35,16 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
 
         settings = new GLib.Settings ("io.github.ellie_commons.indicator-simplethings");
         visible = true;
+
+       // Avoid having nothing to display
+       // And allow translating the default
+       settings.changed["text"].connect (() => {
+                if (settings.get_string ("text") == "") {
+                     settings.set_string ("text", _("Simple Things!"));
+                }
+       });
+
+
     }
 
     public override Gtk.Widget get_display_widget () {
@@ -54,7 +64,6 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget? get_widget () {
         if (box == null) {
             entry = new Gtk.Entry();
-            entry.set_text (settings.get_string ("text"));
             entry.vexpand = true;
             entry.hexpand = true;
             entry.height_request = 24;
@@ -70,16 +79,18 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
     }
 
     public override void opened () {
+        entry.set_text (settings.get_string ("text"));
+
+        switch (settings.get_integer ("position")) {
+            case 0: entry.set_alignment(0.0f);
+            case 1: entry.set_alignment(0.5f);
+            case 2: entry.set_alignment(1f);
+        }
+
         entry.grab_focus ();
     }
 
     public override void closed () {
-
-        // Avoid having nothing to display
-        // And allow translating the default
-        if (   entry.text == "") {
-                entry.text = _("Simple Things!");
-        }
 
         settings.set_string ("text", entry.text);
         label.set_label (settings.get_string ("text"));
