@@ -54,11 +54,18 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
             // You will never see it in gtk3
             entry.placeholder_text = _("Add simple things here :)");
 
+            // Only read setting once - at start of indicator
+            // The thought of asking dconf everytime you click on indicator annoys me
             switch (settings.get_int ("position")) {
                 case 0: entry.set_alignment(0.0f);break;
                 case 1: entry.set_alignment(0.5f);break;
                 case 2: entry.set_alignment(1f);break;
             }
+
+            // Weird hack to allow hitting Enter on entry
+            entry.activate.connect (() => {
+                this.close ();
+            });
 
             // Nice clean box to pad it.
             box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
