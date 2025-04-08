@@ -9,6 +9,8 @@
         <img class="center" src="data/screenshot.png" alt="Simple Things indicator">
     </span>
 </div>
+</br>
+Pretty much the elementary OS pendant of https://github.com/one-thing-gnome/one-thing
 
 
 ## 🛣️ Roadmap
@@ -16,7 +18,7 @@
 Still working on this!
  - Repair translations
  - Im not sure it follows dark-light theme ?
- - Maybe center it or some shit
+ - Maybe center it or some shit or hide that in a dconf
  - Figure out how to do a deb file
 
   
