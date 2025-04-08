@@ -17,8 +17,10 @@ Pretty much the elementary OS pendant of https://github.com/one-thing-gnome/one-
 
 Still working on this!
  - Repair translations (needed? idk.)
- - Change alignment setting (hidden in dconf atm)
  - Figure out how to do a deb file
+   
+
+Note: You can change entry text alignment setting (hidden in dconf atm)
 
   
 ## 💝 Donations
@@ -36,15 +38,7 @@ Stella, current main dev:
 
 ## 🏗️ Building
 
-You'll need the following dependencies:
-
-- libglib2.0-dev
-- libgranite-dev
-- libwingpanel-dev
-- valac
-- meson (>= 0.58)
-
-Install them with:
+Install dependencies with:
 
 ```bash
 sudo apt install libglib2.0-dev libgranite-dev libwingpanel-dev valac meson
@@ -52,13 +46,16 @@ sudo apt install libglib2.0-dev libgranite-dev libwingpanel-dev valac meson
 
 Run `meson` to configure the build environment and then `ninja` to build
 
-    meson build --prefix=/usr
-    cd build
-    ninja
+```bash
+meson build --prefix=/usr
+cd build
+ninja
+```
 
-To install, use `ninja install`
+To install
 
-    sudo ninja install
-Reboot (`reboot`) or kill Wingpanel (`killall io.elementary.wingpanel`)
+```bash
+sudo ninja install
+```
 
-
+To uninstall, same but "uninstall"
