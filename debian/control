@@ -1,21 +1,19 @@
-Source: com.github.lenemter.wingpanel-indicator-namarupa
+Source: io.github.ellie_commons.wingpanel-indicator-simplethings
 Section: x11
 Priority: optional
-Maintainer: lenemter <lenemter@gmail.com>
-Build-Depends: debhelper (>= 10.5.1),
-               libglib2.0-dev,
+Maintainer: Stella <teamcons.carrd.co>
+Build-Depends: libglib2.0-dev,
                libgranite-dev,
                libgtk-3-dev (>= 3.12),
-               libindicator3-dev,
                libwingpanel-dev,
                meson (>= 0.58),
                valac (>= 0.40.0)
 Standards-Version: 4.1.1
-Homepage: https://github.com/lenemter/wingpanel-indicator-namarupa
+Homepage: https://github.com/ellie-commons/wingpanel-indicator-simplethings
 
-Package: com.github.lenemter.wingpanel-indicator-namarupa
+Package: io.github.ellie_commons.wingpanel-indicator-simplethings
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, indicator-application
 Enhances: io.elementary.wingpanel
-Description: Wingpanel Namarupa Indicator
- This brings compatibility with Ayatana Indicator 
+Description: Wingpanel Indicator SimpleThings
+ Simply display some text in the elementary OS top bar
