@@ -17,14 +17,14 @@
  */
 
  
-public class SimpleThings.Indicator : Wingpanel.Indicator {
+public class onething.Indicator : Wingpanel.Indicator {
     private static GLib.Settings settings;
     private Gtk.Entry? entry;
     private Gtk.Label? label;
     private Gtk.Box? box;
 
     public Indicator () {
-        Object (code_name: "simplethings");
+        Object (code_name: "onething");
     }
 
     construct {
@@ -33,15 +33,22 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        settings = new GLib.Settings ("io.github.ellie_commons.indicator-simplethings");
+        settings = new GLib.Settings ("io.github.ellie_commons.indicator-onething");
         visible = true;
     }
 
     public override Gtk.Widget get_display_widget () {
         if (label == null) {
-            string text = settings.get_string ("text");
-            text = check_text (text);
-            label = new Gtk.Label(text);
+
+            label = new Gtk.Label("");
+            on_settings_changed ();
+
+            // React to any change
+            // Like the user could change it from commandline
+            settings.changed["text"].connect (() => {
+                on_settings_changed ();
+            });
+
         }
         return label;
     }
@@ -52,19 +59,19 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
             entry.hexpand = true;
 
             // You will never see it in gtk3
-            entry.placeholder_text = _("Add simple things here :)");
-
-            // Only read setting once - at start of indicator
-            // The thought of asking dconf everytime you click on indicator annoys me
-            switch (settings.get_int ("position")) {
-                case 0: entry.set_alignment(0.0f);break;
-                case 1: entry.set_alignment(0.5f);break;
-                case 2: entry.set_alignment(1f);break;
-            }
+            //entry.placeholder_text = _("Add simple things here :)");
 
             // Weird hack to allow hitting Enter on entry
             entry.activate.connect (() => {
                 this.close ();
+            });
+
+            on_align_changed ();
+
+            // React to any change
+            // Like the user could change it from commandline
+            settings.changed["position"].connect (() => {
+                on_align_changed ();
             });
 
             // Nice clean box to pad it.
@@ -81,35 +88,49 @@ public class SimpleThings.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {
-        string text = check_text (entry.text);
-        label.set_label (text);
-        settings.set_string ("text", text);
+
+        settings.set_string ("text", entry.text);
     }
 
 
     // Avoid having nothing to display
     // And allow translating the default
-    private string check_text(string entered_text) {
+    private void on_settings_changed() {
 
-        if (entered_text == "") {
-            entered_text = _("Simple Things!");
+        string text = settings.get_string ("text");
+
+        if (text == "") {
+            text = _("One Thing!");
         }
-        return entered_text;
+
+        label.set_text (text);
     }
 
 
+    // Only read setting once - at start of indicator - Or with the connect
+    // The thought of asking dconf everytime you click on indicator annoys me
+    private void on_align_changed() {
+
+        int align = settings.get_int ("position");
+
+        switch (align) {
+            case 0: entry.set_alignment(0.0f);break;
+            case 1: entry.set_alignment(0.5f);break;
+            case 2: entry.set_alignment(1f);break;
+        }
+    }
 }
 
 
 
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
-    debug ("Activating SimpleThings Indicator");
+    debug ("Activating onething Indicator");
 
     if (server_type != Wingpanel.IndicatorManager.ServerType.SESSION) {
         return null;
     }
 
-    var indicator = new SimpleThings.Indicator ();
+    var indicator = new onething.Indicator ();
     return indicator;
 }

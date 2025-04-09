@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema path="/io/github/ellie_commons/indicator-simplethings/" id="io.github.ellie_commons.indicator-simplethings">
+  <schema path="/io/github/ellie_commons/indicator-onething/" id="io.github.ellie_commons.indicator-onething">
 	<key name="text" type="s">
 		<default>""</default>
 		<summary>Text to display</summary>

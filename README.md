@@ -1,28 +1,36 @@
 
 <div align="center">
-  <h1 align="center">Simple Things</h1>
+  <h1 align="center">One Thing</h1>
   <h3 align="center">Simply display some text in the elementary OS top bar</h3>
 </div>
 
 <div align="center">
     <span align="center">
-        <img class="center" src="data/screenshot.png" alt="Simple Things indicator">
+        <img class="center" src="data/screenshot.png" alt="One Thing indicator">
     </span>
 </div>
 </br>
-Pretty much the elementary OS pendant of https://github.com/one-thing-gnome/one-thing
 
+Pretty much the elementary OS pendant of 
+Mac OS: https://sindresorhus.com/one-thing
+Gnome-Shell: https://github.com/one-thing-gnome/one-thing
 
 ## 🛣️ Roadmap
 
 Still working on this!
- - Repair translations (needed? idk.)
  - Figure out how to do a deb file
    
 
-Note: You can change entry text alignment setting (hidden in dconf atm)
+You can change text from commandline:
 
+> gsettings set io.github.ellie_commons.indicator-onething text "whatever"
   
+And align the text in the entry box to: 0: left, 1: center, 2: right
+
+> gsettings set io.github.ellie_commons.indicator-onething position 1
+
+
+
 ## 💝 Donations
 
 Support is always welcome and shows us that people want this to continue.
