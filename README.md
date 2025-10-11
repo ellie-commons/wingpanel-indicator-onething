@@ -25,9 +25,9 @@ You can change text from commandline:
 
 > gsettings set io.github.ellie_commons.indicator-onething text "whatever"
   
-And align the text in the entry box to: 0: left, 1: center, 2: right
+And align the text in the entry box to: left, center, right
 
-> gsettings set io.github.ellie_commons.indicator-onething position 1
+> gsettings set io.github.ellie_commons.indicator-onething position center
 
 
 

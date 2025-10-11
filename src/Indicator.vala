@@ -111,12 +111,12 @@ public class onething.Indicator : Wingpanel.Indicator {
     // The thought of asking dconf everytime you click on indicator annoys me
     private void on_align_changed() {
 
-        int align = settings.get_int ("position");
+        var align = settings.get_enum ("position");
 
         switch (align) {
-            case 0: entry.set_alignment(0.0f);break;
-            case 1: entry.set_alignment(0.5f);break;
-            case 2: entry.set_alignment(1f);break;
+            case TextPosition.LEFT: entry.set_alignment(0.0f);break;
+            case TextPosition.CENTER: entry.set_alignment(0.5f);break;
+            case TextPosition.RIGHT: entry.set_alignment(1f);break;
         }
     }
 }
@@ -133,4 +133,10 @@ public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorMan
 
     var indicator = new onething.Indicator ();
     return indicator;
+}
+
+enum TextPosition {
+    LEFT,
+    CENTER,
+    RIGHT;
 }
