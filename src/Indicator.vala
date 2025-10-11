@@ -40,44 +40,44 @@ public class onething.Indicator : Wingpanel.Indicator {
     public override Gtk.Widget get_display_widget () {
         if (label == null) {
 
-            label = new Gtk.Label("");
+            label = new Gtk.Label ("") {
+              tooltip_text = _("Click to change displayed text")  
+            };
             on_settings_changed ();
 
-            // React to any change
-            // Like the user could change it from commandline
-            settings.changed["text"].connect (() => {
-                on_settings_changed ();
-            });
-
+            settings.bind ("text", label, "text", GLib.SettingsBindFlags.DEFAULT);
+            settings.changed["text"].connect_after (on_settings_changed);
         }
         return label;
     }
 
     public override Gtk.Widget? get_widget () {
         if (box == null) {
-            entry = new Gtk.Entry();
-            entry.hexpand = true;
+            entry = new Gtk.Entry () {
+                hexpand = true,
+                secondary_icon_name = "edit-paste-symbolic",
+                secondary_icon_tooltip_text = _("Click to paste from clipboard"),
+            };
 
             // You will never see it in gtk3
             //entry.placeholder_text = _("Add simple things here :)");
 
+            // Nice clean box to pad it.
+            box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0) {
+                margin = 6
+            };
+            box.add (entry);
+
             // Weird hack to allow hitting Enter on entry
-            entry.activate.connect (() => {
-                this.close ();
-            });
+            entry.activate.connect (() => {this.close ();});
+            entry.icon_release.connect (on_paste_clicked);
 
-            on_align_changed ();
-
+            settings.bind ("text", label, "text", GLib.SettingsBindFlags.DEFAULT);
+            
             // React to any change
             // Like the user could change it from commandline
-            settings.changed["position"].connect (() => {
-                on_align_changed ();
-            });
-
-            // Nice clean box to pad it.
-            box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
-            box.add (entry);
-            box.margin = 6;
+            on_align_changed ();            
+            settings.changed["position"].connect (on_align_changed);
         }
         return box;
     }
@@ -88,10 +88,8 @@ public class onething.Indicator : Wingpanel.Indicator {
     }
 
     public override void closed () {
-
         settings.set_string ("text", entry.text);
     }
-
 
     // Avoid having nothing to display
     // And allow translating the default
@@ -106,10 +104,7 @@ public class onething.Indicator : Wingpanel.Indicator {
         label.set_text (text);
     }
 
-
-    // Only read setting once - at start of indicator - Or with the connect
-    // The thought of asking dconf everytime you click on indicator annoys me
-    private void on_align_changed() {
+    private void on_align_changed () {
 
         var align = settings.get_enum ("position");
 
@@ -119,10 +114,15 @@ public class onething.Indicator : Wingpanel.Indicator {
             case TextPosition.RIGHT: entry.set_alignment(1f);break;
         }
     }
+
+    private void on_paste_clicked () {
+        var display = Gdk.Display.get_default ();
+        var clipboard = Gtk.Clipboard.get_default (display);
+        clipboard.request_text (() => {
+            entry.text = clipboard.wait_for_text ();
+        });
+    }
 }
-
-
-
 
 public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorManager.ServerType server_type) {
     debug ("Activating onething Indicator");
@@ -136,7 +136,5 @@ public Wingpanel.Indicator? get_indicator (Module module, Wingpanel.IndicatorMan
 }
 
 enum TextPosition {
-    LEFT,
-    CENTER,
-    RIGHT;
+    LEFT, CENTER, RIGHT;
 }
