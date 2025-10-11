@@ -13,7 +13,12 @@
 
 Pretty much the elementary OS pendant of 
 Mac OS: https://sindresorhus.com/one-thing
+</br>
 Gnome-Shell: https://github.com/one-thing-gnome/one-thing
+
+  <a href="https://elementary.io">
+    <img src="https://ellie-commons.github.io/community-badge.svg" alt="Made for elementary OS">
+  </a>
 
 ## 🛣️ Roadmap
 
