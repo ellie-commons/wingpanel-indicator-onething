@@ -9,12 +9,13 @@ Build-Depends: debhelper (>= 10.5.1),
                libwingpanel-dev,
                meson (>= 0.58),
                valac (>= 0.40.0)
-Standards-Version: 1.0.0
+Standards-Version: 1.1.0
 Homepage: https://github.com/ellie-commons/wingpanel-indicator-onething
+
 Package: io.github.ellie-commons.wingpanel-indicator-onething
 Architecture: any
-Version: 1.0.0
-Depends: io.elementary.wingpanel
+Version: 1.1.0
+Depends: ${misc:Depends}, ${shlibs:Depends}, indicator-application
 Enhances: io.elementary.wingpanel
 Description: Wingpanel Indicator onething
  Simply display some text in the elementary OS top bar

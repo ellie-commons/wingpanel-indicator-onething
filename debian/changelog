@@ -1,4 +1,11 @@
-io.github.ellie_commons.wingpanel-indicator-onething (1.0.0) jammy; urgency=medium
+io.github.ellie-commons.wingpanel-indicator-onething (1.1.0) jammy; urgency=medium
+
+ * Added paste from clipboard
+
+-- Stella <teamcons.carrd.co>  Tue, 12 Oct 2025 19:16:00 +0100
+
+io.github.ellie-commons.wingpanel-indicator-onething (1.0.0) jammy; urgency=medium
+
  * Initial release
 
- -- Stella <teamcons.carrd.co>  Tue, 08 Apr 2025 19:16:00 +0100
+-- Stella <teamcons.carrd.co>  Tue, 08 Apr 2025 19:16:00 +0100
