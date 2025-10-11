@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: onething-indicator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-09 20:11+0200\n"
+"POT-Creation-Date: 2025-10-12 01:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Indicator.vala:103
+#: src/Indicator.vala:44
+msgid "Click to change displayed text"
+msgstr ""
+
+#: src/Indicator.vala:59
+msgid "Click to paste from clipboard"
+msgstr ""
+
+#: src/Indicator.vala:101
 msgid "One Thing!"
 msgstr ""

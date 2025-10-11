@@ -14,7 +14,7 @@
 	</key>
 	<!-- Values: 0(Left), 1(Center), 2(Right) -->
 	<key enum="TextPosition" name="position">
-	      	<default>'left'</default>
+	    <default>'left'</default>
 	</key>
 	</schema>
 </schemalist>

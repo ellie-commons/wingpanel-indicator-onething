@@ -7,11 +7,19 @@ msgstr ""
 "Last-Translator: Automatically generated\n"
 "MIME-Version: 1.0\n"
 "PO-Revision-Date: 2025-04-09 19:43+0200\n"
-"POT-Creation-Date: 2025-04-09 20:11+0200\n"
+"POT-Creation-Date: 2025-10-12 01:04+0200\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Project-Id-Version: onething-indicator\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: src/Indicator.vala:103
+#: src/Indicator.vala:44
+msgid "Click to change displayed text"
+msgstr "Klik om de weergegeven tekst te wijzigen"
+
+#: src/Indicator.vala:59
+msgid "Click to paste from clipboard"
+msgstr "Klik om te plakken vanaf klembord"
+
+#: src/Indicator.vala:101
 msgid "One Thing!"
 msgstr "Eén ding!"
