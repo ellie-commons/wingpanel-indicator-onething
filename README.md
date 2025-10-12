@@ -22,18 +22,20 @@ Gnome-Shell: https://github.com/one-thing-gnome/one-thing
 
 ## 🛣️ Roadmap
 
-Still working on this!
- - Figure out how to do a deb file
+Install the deb file in release to install
    
 
 You can change text from commandline:
 
-> gsettings set io.github.ellie_commons.indicator-onething text "whatever"
-  
+```bash
+gsettings set io.github.ellie_commons.indicator-onething text "whatever"
+```
+
 And align the text in the entry box to: left, center, right
 
-> gsettings set io.github.ellie_commons.indicator-onething position center
-
+```bash
+gsettings set io.github.ellie_commons.indicator-onething position center
+```
 
 
 ## 💝 Donations
