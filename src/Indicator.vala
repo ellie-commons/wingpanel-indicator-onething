@@ -55,7 +55,7 @@ public class onething.Indicator : Wingpanel.Indicator {
         if (box == null) {
             entry = new Gtk.Entry () {
                 hexpand = true,
-                secondary_icon_name = "edit-paste-symbolic",
+                secondary_icon_name = "edit-paste",
                 secondary_icon_tooltip_text = _("Click to paste from clipboard"),
             };
 
