@@ -1,3 +1,16 @@
+io.github.ellie-commons.wingpanel-indicator-onething (1.2.0) jammy; urgency=medium
+
+ * Not symbolic
+
+ -- Stella <teamcons.carrd.co>  Sun, 12 Oct 2025 01:33:00 +0100
+
+io.github.ellie-commons.wingpanel-indicator-onething (1.1.0) jammy; urgency=medium
+
+ * Added paste from clipboard
+ * Now has a deb file
+
+ -- Stella <teamcons.carrd.co>  Sun, 12 Oct 2025 01:33:00 +0100
+
 io.github.ellie-commons.wingpanel-indicator-onething (1.0.0) jammy; urgency=medium
 
  * Initial release
