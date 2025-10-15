@@ -2,6 +2,9 @@
 <div align="center">
   <h1 align="center">One Thing</h1>
   <h3 align="center">Simply display some text in the elementary OS top bar</h3>
+    <a href="https://elementary.io">
+      <img src="https://ellie-commons.github.io/community-badge.svg" alt="Made for elementary OS">
+    </a>
 </div>
 
 <div align="center">
@@ -16,9 +19,6 @@ Mac OS: https://sindresorhus.com/one-thing
 </br>
 Gnome-Shell: https://github.com/one-thing-gnome/one-thing
 
-  <a href="https://elementary.io">
-    <img src="https://ellie-commons.github.io/community-badge.svg" alt="Made for elementary OS">
-  </a>
 
 ## 🛣️ Roadmap
 
