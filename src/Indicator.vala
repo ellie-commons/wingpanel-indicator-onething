@@ -34,7 +34,7 @@ public class onething.Indicator : Wingpanel.Indicator {
         Intl.textdomain (GETTEXT_PACKAGE);
 
         settings = new GLib.Settings ("io.github.ellie_commons.indicator-onething");
-        visible = true;
+        settings.bind ("visible", this, "visible", GLib.SettingsBindFlags.DEFAULT);
     }
 
     public override Gtk.Widget get_display_widget () {
